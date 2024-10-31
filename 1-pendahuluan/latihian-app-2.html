@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Latihan App 2</title>
+  </head>
+  <body>
+    <div class="app"></div>
+
+    <script type="text/babel">
+      const app = document.querySelector(".app");
+      const root = ReactDOM.createRoot(app);
+
+      function MyButton({ text, onClick, count }) {
+        const myStyle = text == "Reset" ? { margin: 20, display: "block" } : {};
+        // ini kondisi disabled button
+        const disabled =
+          text !== "Reset"
+            ? count > 9 || count < 0
+              ? true
+              : false
+            : count > 9 || count < 0
+            ? false
+            : true;
+
+        return (
+          <button onClick={onClick} style={myStyle} disabled={disabled}>
+            {text}
+          </button>
+        );
+      }
+
+      function MyCount({ count }) {
+        if(count > 9 ) {
+            count = "Maksimal 9...!!!"
+        } else if (count < 0) {
+            count = "Minimal 0...!!"
+        }
+        return <span style={{ margin: 20 }}>{count}</span>;
+      }
+
+      function HomePage() {
+        const [count, setCount] = React.useState(0);
+
+        function nambah() {
+          setCount(count + 1);
+        }
+
+        function kurang() {
+          setCount(count - 1);
+        }
+
+        function reset() {
+          setCount(0);
+        }
+
+        return (
+          <div>
+            <MyButton text="-" onClick={kurang} count={count} />
+            <MyCount count={count} />
+            <MyButton text="+" onClick={nambah} count={count} />
+            <MyButton text="Reset" onClick={reset} count={count} />
+          </div>
+        );
+      }
+
+      root.render(<HomePage />);
+    </script>
+  </body>
+</html>
