@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+.square {
+  width: 80px;
+  height: 80px;
+  border: 1px solid black;
+  background-color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.board {
+  width: 240px;
+  height: 240px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.status {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.game {
+  display: flex;
+}
