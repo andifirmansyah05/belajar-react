@@ -4,7 +4,6 @@ import Form from "./components/Form";
 import GroceryList from "./components/GroceryList";
 import Footer from "./components/Footer";
 
-
 const groceryItems = [
   {
     id: 1,
